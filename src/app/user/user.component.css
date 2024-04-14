@@ -1,0 +1,15 @@
+.card-size-400{
+    max-width: 400px;
+}
+.content{
+    padding: 15px;
+}
+
+.user-area{
+    display: flex;
+}
+
+.user-area mat-card{
+    margin-left: 7.5px;
+    margin-right: 7.5px;
+}
