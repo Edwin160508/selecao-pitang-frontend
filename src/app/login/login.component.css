@@ -1,0 +1,17 @@
+.content{
+    padding: 15px;
+}
+.card-size-400{
+    max-width: 400px;
+}
+
+.content div{
+    display: flex;
+    justify-content:center;
+}
+
+.login-button{
+    background-color: #f0a920;
+    width: 100%;
+    color: whitesmoke;
+}

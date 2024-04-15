@@ -1,5 +1,6 @@
 .card-size-400{
-    max-width: 400px;
+    width: 100%;
+    max-width: 200px;
 }
 .content{
     padding: 15px;
