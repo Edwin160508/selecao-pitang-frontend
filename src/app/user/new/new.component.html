@@ -1,0 +1,97 @@
+<div class="content">
+    <h3>User Fields</h3>
+    <form [formGroup]="formUser">
+        <div class="fields">
+            <mat-form-field appearance="outline">
+                <mat-label>First Name</mat-label>
+                <input matInput placeholder="First Name" formControlName="firstName" required />
+            </mat-form-field>    
+            
+            <mat-form-field appearance="outline">
+                <mat-label>Last Name</mat-label>
+                <input matInput placeholder="Last Name" formControlName="lastName" required />
+            </mat-form-field> 
+        </div>
+        <div class="fields">
+            <mat-form-field appearance="outline">
+                <mat-label>E-mail</mat-label>
+                <input matInput placeholder="E-mail" formControlName="email" required />
+            </mat-form-field>    
+            
+            <mat-form-field appearance="outline">
+                <mat-label>Birthday</mat-label>
+                <input matInput placeholder="Birthday" formControlName="birthday" required />
+            </mat-form-field> 
+        </div>
+        <div class="fields">
+            <mat-form-field appearance="outline">
+                <mat-label>Login</mat-label>
+                <input matInput placeholder="Login" formControlName="login" required />
+            </mat-form-field>    
+            
+            <mat-form-field appearance="outline">
+                <mat-label>Password</mat-label>
+                <input matInput placeholder="Password" formControlName="password" required />
+            </mat-form-field> 
+        </div>
+        <div class="fields">
+            <mat-form-field appearance="outline">
+                <mat-label>Phone</mat-label>
+                <input matInput placeholder="Phone" formControlName="phone" required />
+            </mat-form-field>                
+        </div>
+    </form>
+    <h3>Car Fields</h3>
+    <div class="content header-cars-form">        
+        <button mat-button class="new-button" (click)="addCar()">+ Add Car</button>
+    </div>
+    <form [formGroup]="formCar">
+        <div class="fields">
+            <mat-form-field appearance="outline">
+                <mat-label>Year</mat-label>
+                <input matInput placeholder="Year" formControlName="year" required />
+            </mat-form-field>    
+            
+            <mat-form-field appearance="outline">
+                <mat-label>License Plate</mat-label>
+                <input matInput placeholder="License Plate" formControlName="licensePlate" required />
+            </mat-form-field> 
+        </div>
+        <div class="fields">
+            <mat-form-field appearance="outline">
+                <mat-label>Model</mat-label>
+                <input matInput placeholder="Model" formControlName="model" required />
+            </mat-form-field>    
+            
+            <mat-form-field appearance="outline">
+                <mat-label>Color</mat-label>
+                <input matInput placeholder="Color" formControlName="color" required />
+            </mat-form-field> 
+        </div>
+    </form>
+    <!--<table mat-table [dataSource]="carList" >
+        <ng-container matColumnDef="year">
+            <th mat-header-cell *matHeaderCellDef>Year</th>
+            <td mat-cell *matCellDef="let element">{{element.year}}</td>
+        </ng-container>
+    </table>-->
+    <table>
+        <thead>
+            <th>Year</th>
+            <th>Licence Plate</th>
+            <th>Model</th>
+            <th>Color</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let car of carList">
+                <td>{{car.year}}</td>
+                <td>{{car.licensePlate}}</td>
+                <td>{{car.model}}</td>
+                <td>{{car.color}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <div>
+        <button mat-button class="new-button" (click)="addCar()">Save User</button>
+    </div>
+</div>

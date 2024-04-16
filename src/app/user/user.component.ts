@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from './service/service';
+import { MatDialog, MAT_DIALOG_DATA, MatDialogRef, } from '@angular/material/dialog';
+import { NewComponent } from './new/new.component';
 
 @Component({
   selector: 'app-user',
@@ -13,7 +15,15 @@ export class UserComponent implements OnInit {
     this.listaPosts();
   }
 
-  constructor(private userService:UserService) { }
+  constructor(private userService:UserService, public dialog: MatDialog) { }
+
+  newUser(){
+    const dialogRef = this.dialog.open(NewComponent, {
+      height:'100%',
+      width: '500px',
+      autoFocus: false
+    });
+  }
 
   listaPosts(){
     this.userService.findAllUsers()

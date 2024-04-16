@@ -11,20 +11,23 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
-
+import { MatDialogModule } from '@angular/material/dialog';
 import { PageNotFoundComponent } from './shared/page-not-found/page-not-found.component';
 import { UserComponent } from './user/user.component';
 import { LoginComponent } from './login/login.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
+import { MatTableModule } from '@angular/material/table';
+import { NewComponent } from './user/new/new.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PageNotFoundComponent,
     UserComponent,
-    LoginComponent
+    LoginComponent,
+    NewComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +43,9 @@ import { MatInputModule } from '@angular/material/input';
     MatToolbarModule,
     MatFormFieldModule,
     MatInputModule,
-    MatGridListModule
+    MatGridListModule,
+    MatDialogModule,
+    MatTableModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -14,3 +14,14 @@
     margin-left: 7.5px;
     margin-right: 7.5px;
 }
+
+.new-button{
+    background-color: #f0a920;
+    width: auto;
+    color: whitesmoke;
+}
+
+.content div{
+    display: flex;
+    flex-direction: row-reverse;
+}

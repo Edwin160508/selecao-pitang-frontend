@@ -1,4 +1,7 @@
 <div class="content">
+    <div>
+        <button mat-button class="new-button" (click)="newUser()">+ New User</button>
+    </div>
     <mat-grid-list cols="4" rowHeight="200px">
         <mat-grid-tile *ngFor="let user of users"> 
             <mat-card class="card-size-400">

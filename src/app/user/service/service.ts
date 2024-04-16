@@ -17,4 +17,8 @@ export class UserService {
   findAllUsers(): Observable<any> {
     return this.http.get(environment.API_URL+"/users");
   }
+
+  saveUser(user:any): Observable<any>{
+    return this.http.post<any>(environment.API_URL+"/users", user);
+  }
 }
