@@ -20,8 +20,10 @@
             
             <mat-form-field appearance="outline">
                 <mat-label>Birthday</mat-label>
-                <input matInput placeholder="Birthday" formControlName="birthday" required />
-            </mat-form-field> 
+                <input matInput [matDatepicker]="picker" formControlName="birthday" [max]="maxDate" required>                
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
         </div>
         <div class="fields">
             <mat-form-field appearance="outline">
@@ -69,29 +71,25 @@
             </mat-form-field> 
         </div>
     </form>
-    <!--<table mat-table [dataSource]="carList" >
-        <ng-container matColumnDef="year">
-            <th mat-header-cell *matHeaderCellDef>Year</th>
-            <td mat-cell *matCellDef="let element">{{element.year}}</td>
-        </ng-container>
-    </table>-->
     <table>
         <thead>
             <th>Year</th>
             <th>Licence Plate</th>
             <th>Model</th>
             <th>Color</th>
+            <th></th>
         </thead>
         <tbody>
-            <tr *ngFor="let car of carList">
+            <tr *ngFor="let car of carList; index">
                 <td>{{car.year}}</td>
                 <td>{{car.licensePlate}}</td>
                 <td>{{car.model}}</td>
                 <td>{{car.color}}</td>
+                <td><button mat-mini-fab color="warn" aria-label="Remove Car" (click)="removeCarToList(car)"><mat-icon fontIcon="delete_forever"></mat-icon> </button></td>
             </tr>
         </tbody>
     </table>
     <div>
-        <button mat-button class="new-button" (click)="addCar()">Save User</button>
+        <button mat-button class="new-button" (click)="saveUser()">Save User</button>
     </div>
 </div>

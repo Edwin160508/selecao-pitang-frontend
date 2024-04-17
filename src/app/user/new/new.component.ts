@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { UserService } from '../service/service';
+import { DateUtils } from '../../shared/index';
 @Component({
   selector: 'app-new',
   templateUrl: './new.component.html',
@@ -12,6 +13,7 @@ export class NewComponent {
   formCar:FormGroup = this.createCarForm();
 
   carList: any[] = [];
+  maxDate: Date = new Date();
 
   constructor(private formBuilder: FormBuilder, private userService:UserService) { }
 
@@ -51,30 +53,49 @@ export class NewComponent {
     
   }
 
-  saveUser(){
-    if(this.formUser.valid){
+  public findInvalidControls(form:FormGroup):Number {
+    const invalid = [];
+    const controls = form.controls;
+    for (const name in controls) {
+        if (controls[name].invalid) {
+            invalid.push(name);
+        }
+    }
+    
+    return invalid.length;
+}
+removeCarToList(car: any){
+  const index = this.carList.indexOf(car);
+  if(index >= 0){
+    this.carList.splice(index, 1);
+  }
+}
+  saveUser(){   
+    if(this.carList.length == 0){
+      alert("User can't be saved without a car.");
+      return;
+    } 
+    if(this.findInvalidControls(this.formUser) == 0 ){
       let user:any = {
         firstName: this.formUser.value.firstName,
         lastName: this.formUser.value.lastName,
         email: this.formUser.value.email,
-        birthday: this.formUser.value.birthday,
+        birthdayString: DateUtils.convertDateToString(this.formUser.value.birthday),
         login: this.formUser.value.login,
         password: this.formUser.value.password,
         phone: this.formUser.value.phone,
         cars: this.carList
       }
-      
-      if(user.cars.length == 0){
-        alert("User can't be saved without a car.");
-        return;
-      }
 
       this.userService.saveUser(user).subscribe({
-        next: (response)=>{
-          console.log('Resposta recebida ',response);
+        next: (response)=>{  
+                 
+          alert("Sucess: User Saved Successfully! ");
+          window.location.reload();          
         },
         error: (error) =>{
-          console.log('Error: ', error);
+          
+          alert("Error: "+error.error.message);
         }
       });
 
