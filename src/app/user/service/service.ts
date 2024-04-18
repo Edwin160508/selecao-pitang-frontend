@@ -21,4 +21,8 @@ export class UserService {
   saveUser(user:any): Observable<any>{
     return this.http.post<any>(environment.API_URL+"/users", user);
   }
+
+  removeUser(id:Number): Observable<void>{
+    return this.http.delete<void>(environment.API_URL+"/users/"+id);
+  }
 }

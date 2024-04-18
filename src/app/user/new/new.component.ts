@@ -90,7 +90,7 @@ removeCarToList(car: any){
       this.userService.saveUser(user).subscribe({
         next: (response)=>{  
                  
-          alert("Sucess: User Saved Successfully! ");
+          alert("Success: User Saved Successfully! ");
           window.location.reload();          
         },
         error: (error) =>{

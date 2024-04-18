@@ -13,7 +13,10 @@
                     <!--<p>This card indeterminates progress bar.</p> -->
                     <div *ngFor="let car of user.cars">
                         <p>{{car.model}}</p>
-                    </div>         
+                    </div>   
+                    <div>
+                        <button mat-mini-fab color="warn" aria-label="Remove User" (click)="removeUser(user)"><mat-icon fontIcon="delete_forever"></mat-icon> </button>
+                    </div>     
                 </mat-card-content>    
             </mat-card>
         </mat-grid-tile>             

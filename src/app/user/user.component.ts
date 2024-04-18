@@ -12,7 +12,7 @@ export class UserComponent implements OnInit {
 
   users: any;
   ngOnInit() {
-    this.listaPosts();
+    this.listaUsers();
   }
 
   constructor(private userService:UserService, public dialog: MatDialog) { }
@@ -25,26 +25,31 @@ export class UserComponent implements OnInit {
     });
   }
 
-  listaPosts(){
+  removeUser(user: any){
+    console.log("User: ", user);
+    this.userService.removeUser(user.id).subscribe({
+      next: (response)=>{
+        alert("Success: User removed Successfully! ");
+        window.location.reload();
+      },
+      error: (error) =>{
+        alert("Error: "+error.error.message);
+      }
+    });
+    
+  }
+
+  listaUsers(){
     this.userService.findAllUsers()
     .subscribe({
       next: (response)=>{
         console.log('Resposta recebida ',response);
         this.users = response;
-        console.log('Users ',this.users);
-        console.log('Cars ',this.users.cars);
       },
       error: (error) =>{
-        console.log('Error: ', error);
+        alert("Error: "+error.error.message);
       }
     })
-    /*.subscribe((response) => {
-      this.users = response;
-      console.log('Resposta recebida ',response);
-      console.log('Variavel preenchida ',this.users);
-    },(error: any) =>{
-      
-      console.log('Erro: ', error);
-    });*/
+   
   }
 }
