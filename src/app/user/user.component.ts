@@ -11,11 +11,24 @@ import { NewComponent } from './new/new.component';
 export class UserComponent implements OnInit {
 
   users: any;
+
   ngOnInit() {
     this.listaUsers();
   }
 
   constructor(private userService:UserService, public dialog: MatDialog) { }
+
+  editUser(user:any){
+    console.log("User to Update before send: ", user);
+    this.setUserIdCarList(user);
+    const dialogUserRef = this.dialog.open(NewComponent, {
+      height:'100%',
+      width: '500px',
+      autoFocus: false,
+      data: user
+      
+    });
+  }
 
   newUser(){
     const dialogRef = this.dialog.open(NewComponent, {
@@ -51,5 +64,11 @@ export class UserComponent implements OnInit {
       }
     })
    
+  }
+
+  setUserIdCarList(user:any){    
+    for(let car of user.cars){
+      car['user'] = {id: user.id}
+    }    
   }
 }

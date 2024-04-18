@@ -23,5 +23,19 @@ export class DateUtils {
         return date.getFullYear()+"-"+this.concatZeroMonthOrDay(month)+"-"+this.concatZeroMonthOrDay(date.getDate());
     }
 
+    public static convertStringToDate(dateString: String): Date{
+        let date = new Date();
+        let year = dateString.substring(0,4);
+        let month= dateString.substring(5,7);
+        let day = dateString.substring(8);
+        
+        date.setDate(Number(day));
+        date.setMonth(Number(month)-1);
+        date.setFullYear(Number(year))
+        
+        return date;
+        
+    }
+
     
 }
