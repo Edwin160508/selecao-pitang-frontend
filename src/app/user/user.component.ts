@@ -40,7 +40,7 @@ export class UserComponent implements OnInit {
 
   removeUser(user: any){
     console.log("User: ", user);
-    this.userService.removeUser(user.id).subscribe({
+    this.userService.removeUser(user.key).subscribe({
       next: (response)=>{
         alert("Success: User removed Successfully! ");
         window.location.reload();
@@ -68,7 +68,7 @@ export class UserComponent implements OnInit {
 
   setUserIdCarList(user:any){    
     for(let car of user.cars){
-      car['user'] = {id: user.id}
+      car['user'] = {key: user.key}
     }    
   }
 }

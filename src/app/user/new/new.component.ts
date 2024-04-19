@@ -76,7 +76,7 @@ export class NewComponent implements OnInit {
         color: this.formCar.value.color
       }      
       if(this.data){
-        car['user'] = {id: this.data.id}
+        car['user'] = {key: this.data.key}
       }
       this.checkLincensePlate(this.carList, car);
       
@@ -111,7 +111,7 @@ updateUser(){
   this.showInvalidFields();
 
   let user:any = {
-    id: this.data.id,
+    key: this.data.key,
     firstName: this.formUser.value.firstName,
     lastName: this.formUser.value.lastName,
     email: this.formUser.value.email,
