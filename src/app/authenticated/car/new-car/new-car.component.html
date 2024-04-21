@@ -1,0 +1,31 @@
+<div class="content">
+    <h3>Car</h3>
+    <form [formGroup]="formCar">
+        <div class="fields">
+            <mat-form-field appearance="outline">
+                <mat-label>Year</mat-label>
+                <input matInput placeholder="Year" formControlName="year" required />
+            </mat-form-field>    
+            
+            <mat-form-field appearance="outline">
+                <mat-label>Model</mat-label>
+                <input matInput placeholder="Model" formControlName="model" required />
+            </mat-form-field> 
+        </div>
+        <div class="fields">
+            <mat-form-field appearance="outline">
+                <mat-label>License Plate</mat-label>
+                <input matInput placeholder="License Plate" formControlName="licensePlate" required />
+            </mat-form-field>    
+            
+            <mat-form-field appearance="outline">
+                <mat-label>Color</mat-label>
+                <input matInput placeholder="Color" formControlName="color" required />
+            </mat-form-field> 
+        </div>
+        <div class="fields">
+            <button mat-button class="new-button" style="width: 100%;" (click)="saveOrUpdate()">Save Car</button>
+        </div>
+    </form>
+    
+</div>

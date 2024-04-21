@@ -1,0 +1,19 @@
+.content{
+    padding: 15px;
+}
+
+.fields{
+    display: flex;
+    justify-content: space-around;
+}
+
+.new-button{
+    background-color: #f0a920;
+    width: auto;
+    color: whitesmoke;
+}
+
+.header-cars-form{
+    display: flex;
+    justify-content: flex-end;
+}

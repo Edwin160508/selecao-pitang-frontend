@@ -1,0 +1,25 @@
+<div class="content">
+    <div>
+        <button mat-button class="new-button" (click)="newCar()">+ New Car</button>
+    </div>
+    
+    <mat-grid-list cols="4" rowHeight="200px">
+        <mat-grid-tile *ngFor="let car of carList"> 
+            <mat-card class="card-size-400">
+                <mat-card-header>
+                    <mat-card-title>Car</mat-card-title>      
+                </mat-card-header>
+                <mat-card-content>                                        
+                    <p>{{car.year}}</p>
+                    <p>{{car.model}}</p>
+                    <p>{{car.color}}</p>
+                    <p>{{car.licensePlate}}</p>
+                    <div>
+                        <button mat-mini-fab color="warn" aria-label="Remove Car" (click)="removeCar(car)"><mat-icon fontIcon="delete_forever"></mat-icon> </button>
+                        <button mat-mini-fab color="primary" aria-label="Remove Car" (click)="editCar(car)"><mat-icon fontIcon="description"></mat-icon> </button>
+                    </div>     
+                </mat-card-content>    
+            </mat-card>
+        </mat-grid-tile>             
+    </mat-grid-list>
+</div>

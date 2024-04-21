@@ -22,6 +22,8 @@ import { MatTableModule } from '@angular/material/table';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { NewComponent } from './user/new/new.component';
+import { CarComponent } from './authenticated/car/car.component';
+import { NewCarComponent } from './authenticated/car/new-car/new-car.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { NewComponent } from './user/new/new.component';
     PageNotFoundComponent,
     UserComponent,
     LoginComponent,
-    NewComponent
+    NewComponent,
+    CarComponent,
+    NewCarComponent
   ],
   imports: [
     BrowserModule,
