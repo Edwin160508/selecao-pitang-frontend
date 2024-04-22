@@ -17,6 +17,7 @@ export class CarComponent implements OnInit{
   
 
   ngOnInit(){
+    this.verifyTokenExpiredToLogout();
     this.populateCars();
   }
 
@@ -58,7 +59,18 @@ export class CarComponent implements OnInit{
   }
 
   removeCar(car:any){
-
+    console.log("Remove car ",this.authService.isAuthenticated());
+    if(this.authService.isAuthenticated()){
+      this.carService.removeCar(car.key).subscribe({
+        next: (response)=>{
+          alert("Success: Car removed Successfully! ");
+          window.location.reload();
+        },
+        error: (error)=>{
+          alert("Error: "+error.error.message);
+        }
+      });
+    }
   }
 
   setUserIdCar(car:any){        
@@ -69,5 +81,20 @@ export class CarComponent implements OnInit{
     for(let car of list){
       this.setUserIdCar(car);
     }
+  }
+  private isTokenExpired(token: string) {
+    const expiry = (JSON.parse(atob(token.split('.')[1]))).exp;
+    return expiry * 1000 < Date.now();
+  }
+
+  verifyTokenExpiredToLogout(){
+    let token = this.authService.getToken();
+    if(token){
+      if (this.isTokenExpired(token)) {
+        this.authService.logout(); 
+        window.location.reload();   
+      } 
+    }
+
   }
 }
