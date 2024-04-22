@@ -1,5 +1,8 @@
 # Seleção Pitang Front-end
 
+1. Assim que baixar o projeto execute "npm install" para baixar as denpendências.
+2. Após conclusão das dependencias use o comando "npm start" para ativar o proxy de configuração de CORS origin.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.0.
 
 After download execute "npm install" to make download dependencies this project.
