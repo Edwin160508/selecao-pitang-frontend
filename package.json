@@ -4,7 +4,8 @@
   "scripts": {
     "postinstall": "ng build --configuration production",
     "ng": "ng",
-    "start": "node server.js --proxy-config proxy.conf.json",
+    "start": "ng serve --proxy-config proxy.conf.json",
+    "starth": "node server.js --proxy-config proxy.conf.json",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
