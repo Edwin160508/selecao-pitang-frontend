@@ -1,6 +1,6 @@
 {
     "/api": {
-        "target": "http://localhost:8080",
+        "target": "https://app-selecao-pitang-backend-7b581e9ba075.herokuapp.com",
         "secure": false
     }
 }
