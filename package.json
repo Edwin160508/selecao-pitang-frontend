@@ -24,6 +24,8 @@
     "@angular/platform-browser-dynamic": "^16.0.0",
     "@angular/router": "^16.0.0",
     "@ngrx/store": "^16.0.1",
+    "express": "4.19.2",
+    "path": "0.12.7",
     "rxjs": "~7.8.0",
     "typescript": "~5.0.2",
     "tslib": "^2.3.0",
@@ -40,5 +42,9 @@
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.0.0"
     
+  },
+  "engines": {
+    "node": "14.17.0",
+    "npm": "6.14.10"
   }
 }
